@@ -1,0 +1,4 @@
+
+plastic | 10
+plastic | 10
+paper | 55
