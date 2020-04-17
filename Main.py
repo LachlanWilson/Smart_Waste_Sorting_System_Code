@@ -24,7 +24,7 @@ def wasteType(SensorInfo):
         return "invalid"
 
 def DataRecording(wasteType,SensorInfo):
-    print("working")
+    print(wasteType + " | " + str(SensorInfo))
 
     with open('Data.txt','a') as the_file: the_file.write(wasteType + " | " + str(SensorInfo) + '.\n')
 
