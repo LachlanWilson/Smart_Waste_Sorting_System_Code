@@ -3,16 +3,15 @@ import Sensor
 import MechElements
 
 def Main():
-    
     #while(True):
-    SensorInfo = Sensor.Main() # return number
-    
-    if(SensorInfo != 0):
-        # do anything that needs to happen for processing the data
-        Type = wasteType(SensorInfo) 
-        DataProcessing(Type,SensorInfo)
-        if(Type != "invalid"):
-            MechElements.Main(SensorInfo)
+        SensorInfo = Sensor.Main() # return number
+
+        if(SensorInfo != 0):
+            # do anything that needs to happen for processing the data
+            Type = wasteType(SensorInfo) 
+            DataRecording(Type,SensorInfo)
+            if(Type != "invalid"):
+                MechElements.Main(SensorInfo)
 
 def wasteType(SensorInfo):
     if(SensorInfo < 50):
@@ -24,9 +23,9 @@ def wasteType(SensorInfo):
     else:
         return "invalid"
 
-def DataProcessing(wasteType,SensorInfo):
+def DataRecording(wasteType,SensorInfo):
+    print("working")
 
-    with open('Data.txt', 'a') as the_file: the_file.write(wasteType + " | " + str(SensorInfo) + '\n')
+    with open('Data.txt','a') as the_file: the_file.write(wasteType + " | " + str(SensorInfo) + '.\n')
 
-    # process data
 Main()
